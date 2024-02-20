@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Syntax Basics</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@429&display=swap" rel="stylesheet">
+    <!-- Add your own CSS -->
+    <!-- Add your CSS links here if needed -->
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+    <header id="head">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../Images/logo.png" alt="CodingSphere Academy">
+            </div>
+            <ul class="dropdown">
+                <li class="dropdown-toggle">Languages
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Python</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">Java</a></li>
+                        <!-- Add more languages as needed -->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+          <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Python Introduction</h3>
+            </div>
+            <div class="sidebar-content">
+                <ul class="sidebar-links">
+                    <li><a href="../Python.html">Overview</a></li>
+                    <li><a href="../Python.html">Key Features</a></li>
+                    <li><a href="../Python.html">Syntax Basics</a></li>
+                    <li><a href="../Python.html">Code Examples</a></li>
+                    <li><a href="../Python.html">Resources</a></li>
+                    <li><a href="./Python/Python-syntax.html">Python Syntax</a></li>
+                </ul>
+            </div>
+        </aside>
+      <h1>Python Syntax Basics</h1>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Python is a high-level programming language known for its simplicity and readability. It uses indentation to define code blocks instead of braces or keywords like other programming languages.</p>
+            <pre><code>
+print("Hello, World!")
+            </code></pre>
+        </section>
+        <section id="variables">
+            <h2>Variables and Data Types</h2>
+            <p>In Python, you can declare variables without specifying their data types. Python supports various data types such as integers, floats, strings, lists, tuples, dictionaries, etc.</p>
+            <pre><code>
+# Variable declaration
+x = 10
+name = "John"
+            </code></pre>
+        </section>
+        <section id="control-flow">
+            <h2>Control Flow</h2>
+            <p>Python provides constructs like if-else statements, loops (for and while), and exception handling for control flow.</p>
+            <pre><code>
+# If-else statement
+x = 10
+if x > 0:
+    print("Positive")
+else:
+    print("Negative")
+            </code></pre>
+        </section>
+        <section id="functions">
+            <h2>Functions</h2>
+            <p>Functions in Python are defined using the <code>def</code> keyword. They can accept parameters and return values.</p>
+            <pre><code>
+# Function definition
+def greet(name):
+    return "Hello, " + name + "!"
+
+# Function call
+message = greet("Alice")
+print(message)
+            </code></pre>
+        </section>
+        <section id="exercise">
+        <h2>Exercise</h2>
+        <p>Write a Python function named <code>calculate_average</code> that takes a list of numbers as input and returns the average of those numbers. Test your function with a sample list.</p>
+        <!-- Textarea for user input -->
+        <textarea id="user-code" rows="10" cols="50"></textarea>
+        <button onclick="runUserCode()">Run</button>
+        <!-- Div to display output -->
+        <div id="output"></div>
+        <!-- Div for CodeMirror -->
+        <div id="code-editor"></div>
+    </section>
+
+    <script>
+        // Initialize CodeMirror on the textarea
+        var editor = CodeMirror(document.getElementById('code-editor'), {
+            value: '',
+            mode: 'python',
+            lineNumbers: true,
+            autofocus: true
+        });
+
+        function runUserCode() {
+            // Get the user's code from the CodeMirror editor
+            var userCode = editor.getValue();
+
+            // Create a sandbox environment to execute the user's code
+            var sandbox = {
+                console: {
+                    log: function(output) {
+                        // Display the output in the output div
+                        document.getElementById('output').textContent += output + '\n';
+                    }
+                }
+            };
+
+            // Execute the user's code in the sandbox environment
+            try {
+                eval(userCode);
+            } catch (error) {
+                // Display any errors that occur during execution
+                document.getElementById('output').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+</body>
+</html>
+

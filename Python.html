@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Introduction</title>
+    <!-- Add CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.css">
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="./Style.css">
+    <!-- Add your JavaScript links here if needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/python/python.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <script
+  src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.1/dist/algoliasearch-lite.umd.js"
+  integrity="sha256-pxkGFjfnFWYGOtV9uhCWK/spKiGS0Z7gVDKYm39LyfM="
+  crossorigin="anonymous"
+></script>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <header id="head">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./Images/logo.png" alt="CodingSphere Academy">
+            </div>
+            <ul class="dropdown">
+                <li class="dropdown-toggle">Languages
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Python</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">Java</a></li>
+                        
+                        <!-- Add more languages as needed -->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Python Introduction</h3>
+            </div>
+            <div class="sidebar-content">
+                <ul class="sidebar-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Key Features</a></li>
+                    <li><a href="#syntax">Syntax Basics</a></li>
+                    <li><a href="#examples">Code Examples</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="./Python/Python-syntax.html">Python Syntax</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Python Content Section -->
+        <section class="python-content">
+            <h2 id="overview">Python Overview</h2>
+            <p>Welcome to the Python Introduction page! Python is a high-level programming language known for its simplicity and readability. It is widely used in various fields such as web development, data science, artificial intelligence, and more.</p>
+            <p>Python was created by Guido van Rossum and first released in 1991. It emphasizes code readability and allows programmers to express concepts in fewer lines of code compared to other languages.</p>
+            <p>Python supports multiple programming paradigms, including procedural, object-oriented, and functional programming. It has a vast standard library and a thriving ecosystem of third-party packages, making it suitable for various applications.</p>
+            <p>Whether you're a beginner or an experienced programmer, Python offers a gentle learning curve and extensive resources to help you master the language and build powerful applications.</p>
+
+            <h2 id="features">Key Features of Python</h2>
+            <ul>
+                <li>Simple and easy-to-learn syntax</li>
+                <li>Interpreted language with dynamic typing</li>
+                <li>Support for multiple programming paradigms</li>
+                <li>Extensive standard library</li>
+                <li>Large community and ecosystem</li>
+            </ul>
+
+            <h2 id="syntax">Syntax Basics</h2>
+            <p>Python syntax is designed to be simple and readable. Here are some basic syntax rules:</p>
+            <ul>
+                <li>Indentation is used for block delimiters (no braces)</li>
+                <li>Variables are dynamically typed</li>
+                <li>Strings can be enclosed in single or double quotes</li>
+                <li>Comments start with the '#' character</li>
+            </ul>
+
+            <h2 id="examples">Python Code Examples</h2>
+            <div id="code-snippets">
+                <textarea id="python-code">
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("World"))
+                </textarea>
+            </div>
+
+            <h2 id="resources">Python Resources</h2>
+            <ul>
+                <li><a href="https://www.python.org">Official Python Website</a></li>
+                <li><a href="https://docs.python.org">Python Documentation</a></li>
+                <li><a href="https://realpython.com">Real Python</a> - Python tutorials and articles</li>
+                <li><a href="https://stackoverflow.com/questions/tagged/python">Stack Overflow</a> - Python questions and answers</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 PythonIntro. All rights reserved.</p>
+    </footer>
+
+    <!-- Initialize CodeMirror -->
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("python-code"), {
+            lineNumbers: true,
+            mode: "python",
+            theme: "default",
+            viewportMargin: Infinity
+        });
+    </script>
+</body>
+</html>
