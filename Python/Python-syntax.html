@@ -94,42 +94,46 @@ print(message)
         <section id="exercise">
         <h2>Exercise</h2>
         <p>Write a Python function named <code>calculate_average</code> that takes a list of numbers as input and returns the average of those numbers. Test your function with a sample list.</p>
-        <div id="code-editor">
-        </div>
+<div id="code-editor"></div>
         <div id="output"></div>
     </section>
 
     <script>
-        // Initialize CodeMirror on the textarea
-        var editor = CodeMirror(document.getElementById('code-editor'), {
-            value: '',
-            mode: 'python',
-            lineNumbers: true,
-            autofocus: true
-        });
+       // Initialize CodeMirror on the code-editor div
+    var editor = CodeMirror(document.getElementById('code-editor'), {
+        value: '',
+        mode: 'python',
+        lineNumbers: true,
+        autofocus: true
+    });
 
-        function runUserCode() {
-            // Get the user's code from the CodeMirror editor
-            var userCode = editor.getValue();
+    function runUserCode() {
+        // Clear previous output
+        document.getElementById('output').innerHTML = '';
 
-            // Create a sandbox environment to execute the user's code
-            var sandbox = {
-                console: {
-                    log: function(output) {
-                        // Display the output in the output div
-                        document.getElementById('output').textContent += output + '\n';
-                    }
+        // Get the user's code from the CodeMirror editor
+        var userCode = editor.getValue();
+
+        // Create a sandbox environment to execute the user's code
+        var sandbox = {
+            console: {
+                log: function(output) {
+                    // Display the output in the output div
+                    document.getElementById('output').innerHTML += output + '<br>';
                 }
-            };
-
-            // Execute the user's code in the sandbox environment
-            try {
-                eval(userCode);
-            } catch (error) {
-                // Display any errors that occur during execution
-                document.getElementById('output').textContent = 'Error: ' + error.message;
             }
+        };
+
+        // Execute the user's code in the sandbox environment
+        try {
+            // Wrap user code in a function to prevent variable leaks
+            var codeToExecute = '(function() {' + userCode + '})();';
+            eval(codeToExecute);
+        } catch (error) {
+            // Display any errors that occur during execution
+            document.getElementById('output').innerHTML = 'Error: ' + error.message;
         }
+    }
     </script>
     </main>
     <footer>
